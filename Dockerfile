@@ -15,8 +15,8 @@ RUN npm cache clean --force
 # Copy the rest of the application
 COPY . .
 
-# Expose Vite dev server port
+# Expose the React dev server port
 EXPOSE 5173
 
-# Start the Vite development server
+# Start the React development server
 CMD ["npm", "run", "dev", "--", "--host"]
