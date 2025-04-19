@@ -158,3 +158,48 @@ button:focus-visible {
 .read-the-docs {
   color: #888;
 }
+
+.main-container {
+  flex-grow: 1;
+}
+
+.main-header {
+  background-color: #1e0a28;
+}
+
+.main-content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.paper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 240px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.grid-item-8 {
+  grid-column: span 8;
+}
+
+.grid-item-4 {
+  grid-column: span 4;
+}
+
+@media (max-width: 960px) {
+  .grid-item-8,
+  .grid-item-4 {
+    grid-column: span 12;
+  }
+}

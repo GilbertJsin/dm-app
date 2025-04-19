@@ -1,22 +1,29 @@
-# Base image
-FROM node:18-alpine
+# Build stage
+FROM node:18-alpine AS build
 
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package files
 COPY package*.json ./
 
-# Install all dependencies
+# Install dependencies
 RUN npm install
 
-RUN npm cache clean --force
-
-# Copy the rest of the application
+# Copy application files
 COPY . .
 
-# Expose the React dev server port
-EXPOSE 5173
+# Build the application
+RUN npm run build
 
-# Start the React development server
-CMD ["npm", "run", "dev", "--", "--host"]
+# Production stage - using a more secure nginx image
+FROM nginx:alpine-slim
+
+# Copy built assets from build stage
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
