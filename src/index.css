@@ -24,6 +24,7 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -52,19 +53,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
 .login-container {
@@ -201,5 +189,12 @@ button:focus-visible {
   .grid-item-8,
   .grid-item-4 {
     grid-column: span 12;
+  }
+}
+
+@media (min-width: 600px) {
+  .MuiToolbar-root {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
   }
 }
