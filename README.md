@@ -1,3 +1,6 @@
+## I added Material UI not realizing the major differences it required.  Learning React and Material UI as the same time was not productive.  I create a new repo with just React and will look later into refactoring with Material UI.
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
